@@ -1,4 +1,4 @@
-# sfdx-mass-reassign-oppty
+# sfdx-mass-reassign-oppty Utility App
 ## Overview
 Salesforce DX Project for the mini-app to allow Mass reassign opportunities without giving View/Modify All data permission to users.
 
@@ -18,3 +18,45 @@ This utility provide this feature.
 ## Unit tests
 Basic unit test is included in this repository. This test requires to create an opportunity and we used dev org with simplified requirement.
 This may not be realistic for complex orgs with complex Oppty process, custom field requirements or reocrd types. Depending on your org Oppty complexity unit test will need ot be updated to match the ORG.
+
+## Dev, Build and Test
+
+
+## Resources
+
+
+## Description of Files and Directories
+
+DX Project Directory
+
+```
+sfdx-mass-reassign-oppty
+    /config
+    /force-app
+        /main
+            /default
+                /aura
+                /classes
+                /pages
+```
+Apex Class Files
+
+```
+MassReassignOppty.cls
+MassReassignOppty.cls-meta.xml
+MassReassignOpptyTest.cls
+MassReassignOpptyTest.cls-meta.xml
+```
+Visual Force Page
+
+```
+MassReassignOppty.page
+MassReassignOppty.page-meta.xml
+```
+## Issues
+
+When the Owner of the opportunity need to be reassigned is Disabled user then search cannot find and set this user to get his opportunities to reassign.
+
+Workaround
+
+Instead of diactivating a user make it active nad freeze user. Then we can reassign his oportunities and deactivate.
