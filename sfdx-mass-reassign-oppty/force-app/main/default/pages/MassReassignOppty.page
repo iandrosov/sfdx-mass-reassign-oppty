@@ -1,0 +1,72 @@
+<apex:page controller="MassReassignOppty" tabStyle="Opportunity" lightningStyleSheets="true">
+<!--Javascript to select all records-->
+    <script type="text/javascript">
+        function selectAllRecords(obj,selInputID){
+            var inputCheckBox = document.getElementsByTagName("input");                  
+            for(var i=0; i<inputCheckBox.length; i++){          
+                if(inputCheckBox[i].id.indexOf(selInputID)!=-1){                                     
+                    inputCheckBox[i].checked = obj.checked;
+                }
+            }
+        }
+    </script>
+    <apex:form >
+    
+        <apex:pageBlock title="Filter Opportunity" id="filter">
+            <apex:pageblockSection columns="4">
+                <apex:inputField id="filterid" value="{!opptyFilter.OwnerId}" required="false"/>
+                <apex:commandButton value="Filter" action="{!filterOpportunity}" />
+            </apex:pageblockSection>
+		</apex:pageBlock>
+        <apex:pageBlock title="Reassign Opportunity [Selected: {!selectCount}]" id="selectcounter">
+            <apex:pageblockSection columns="4">
+                <apex:inputField id="ownerid" value="{!opportunity.OwnerId}" required="false"/>    
+                <apex:commandButton value="Reassign" action="{!assignOpportunity}" />
+                <apex:commandButton action="{!cancel}" value="Cancel" />
+            </apex:pageblockSection>
+        </apex:pageBlock>
+ 
+        <apex:pageBlock id="opportunitylist" title="Opportunities">
+          <apex:outputPanel id="myOpportunityList">
+            <apex:pageMessages />
+            <apex:pageBlockTable value="{!opportunityList}" var="opty">
+                
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:inputCheckbox onclick="selectAllRecords(this,'inputId')">
+                    		<apex:actionsupport event="onchange" rerender="selectcounter" />  
+                    	</apex:inputCheckbox>                            
+                    </apex:facet>                     
+                    <apex:inputCheckbox value="{!opty.checked}" id="inputId">
+                    	<apex:actionsupport event="onchange" rerender="selectcounter" />  
+                    </apex:inputCheckbox>
+                </apex:column>
+ 
+                <apex:column value="{!opty.name}" headerValue="OPPORTUNITY NAME"/>
+                <apex:column value="{!opty.oppty.Owner.FirstName} {!opty.oppty.Owner.LastName}" headerValue="OWNER FULL NAME"/>
+                <apex:column value="{!opty.oppty.StageName}" headerValue="STAGE"/>             
+                <apex:column value="{!opty.oppty.Type}" headerValue="TYPE"/>
+                <apex:column >
+                    <apex:facet name="header">
+                        CREATED DATE
+                    </apex:facet>
+                    <apex:outputText value="{0,date,yyyy-MM-dd}">
+       					<apex:param value="{!opty.oppty.CreatedDate}" />
+   					</apex:outputText>
+                </apex:column>
+
+            </apex:pageBlockTable>
+          </apex:outputPanel>
+             
+        </apex:pageBlock>
+
+        <apex:panelGrid columns="4" id="pagecontrol">
+    		<apex:commandLink action="{!first}">First</apex:commandlink>
+    		<apex:commandLink action="{!previous}" rendered="{!hasPrevious}" >Previous</apex:commandlink>
+    		<apex:commandLink action="{!next}" rendered="{!hasNext}" >Next</apex:commandlink>
+    		<apex:commandLink action="{!last}" >Last</apex:commandlink>
+    	</apex:panelGrid>
+
+    </apex:form>
+    
+</apex:page>
