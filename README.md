@@ -16,13 +16,13 @@ Example is ORG where managers in call center cannot have View/Modify All data, i
 This utility provide this feature.
 
 ## Unit tests
-Basic unit test is included in this repository. This test requires to create an opportunity and we used dev org with simplified requirement.
-This may not be realistic for complex orgs with complex Oppty process, custom field requirements or reocrd types. Depending on your org Oppty complexity unit test will need ot be updated to match the ORG.
+Basic unit test is included in this repository. This test requires opportunity data and we used dev org with simplified requirements.
+This may not be realistic for complex orgs with complex Opportunity process, custom field requirements, validations or reocrd types. Depending on your org Oppty complexity unit test will need ot be updated to match the ORG requirement.
 
 ## Dev, Build and Test
 To deploy this project to scratch or dev org, clone the repository.
 
-** To deploy thois app with ANT use this reopositoty [sf-mass-reassign-oppty](https://github.com/iandrosov/sf-mass-reassign-oppty)
+*NOTE: To deploy this app with ANT use this reopositoty [sf-mass-reassign-oppty](https://github.com/iandrosov/sf-mass-reassign-oppty)
 
 ```
 git clone https://github.com/iandrosov/sfdx-mass-reassign-oppty.git
