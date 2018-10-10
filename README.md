@@ -20,7 +20,15 @@ Basic unit test is included in this repository. This test requires to create an 
 This may not be realistic for complex orgs with complex Oppty process, custom field requirements or reocrd types. Depending on your org Oppty complexity unit test will need ot be updated to match the ORG.
 
 ## Dev, Build and Test
+To deploy this project to scratch or dev org, clone the repository.
 
+```
+git clone https://github.com/iandrosov/sfdx-mass-reassign-oppty.git
+
+# Create scratch org
+sfdx 
+
+```
 
 ## Resources
 
