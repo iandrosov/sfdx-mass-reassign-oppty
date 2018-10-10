@@ -1,6 +1,6 @@
 /**
  * Name     : MassReassignOppty
- * Usage    : Class controller for Opportunity batch owner assignmnet.
+ * Usage    : Class controller for Opportunity owner assignmnet in bulk. Enable user select user and see hit owned oppotunities.
  *  
  * Created By      : A.I.
  * Modified By     : A.I.
