@@ -22,11 +22,17 @@ This may not be realistic for complex orgs with complex Oppty process, custom fi
 ## Dev, Build and Test
 To deploy this project to scratch or dev org, clone the repository.
 
+** To deploy thois app with ANT use this reopositoty [sf-mass-reassign-oppty](https://github.com/iandrosov/sf-mass-reassign-oppty)
+
 ```
 git clone https://github.com/iandrosov/sfdx-mass-reassign-oppty.git
 
 # Create scratch org
-sfdx 
+sfdx force:org:create -f config/project-scratch-def.json -a TestOrg
+
+
+# Deploy code to scxratch org
+sfdx foce:source:push
 
 ```
 
